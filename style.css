@@ -1,0 +1,128 @@
+
+
+body {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    direction: rtl;
+}
+
+.container {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.input-task {
+    width: 70%;
+    padding: 15px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+
+.add-btn {
+    width: 20%;
+    padding: 15px;
+    margin-right: 10px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: bisque;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #ffffff86;
+    color: #fff;
+}
+
+.tasks-container{
+    width: 85%;
+    list-style: none;
+}
+
+.tasks-container li {
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-container li div {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.delete-btn {
+    margin-left: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btn {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.delete-btn:hover{
+    scale: 1.1;
+    color: #fff;
+    cursor: pointer;
+}
+
+.edit-btn:hover{
+    scale: 1.1;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .container{
+        overflow: hidden;
+    }
+
+    .container h1{
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .container .input-task {
+        width: 60%;
+    }
+
+    .tasks-container li {
+        width: 80%;
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .tasks-container div {
+        margin-left: -30px;
+        margin-top: 10px;
+    }
+}
