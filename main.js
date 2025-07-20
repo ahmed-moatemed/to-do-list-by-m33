@@ -3,11 +3,11 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const inputTask = document.querySelector(".input-task");
 const addBtn = document.querySelector('.add-btn');
 const tasksContainer = document.querySelector('.tasks-container');
-
+const deleteAllBtn = document.querySelector('.delete-all-btn');
 
 addBtn.addEventListener('click', () => {
     if (inputTask.value.trim() === '') {
-        alert('Please enter a task');
+        alert('من فضلك اكتب مهمه');
         return;
     }
 
@@ -15,6 +15,20 @@ addBtn.addEventListener('click', () => {
     inputTask.value = '';
     saveTasks();
     renderTasks();
+});
+
+inputTask.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        if (inputTask.value.trim() === '') {
+            alert('من فضلك اكتب مهمه');
+            return;
+        }
+    
+        tasks.push({ text : inputTask.value.trim() , completed : false});
+        inputTask.value = '';
+        saveTasks();
+        renderTasks();
+    }
 });
 
 function saveTasks () {
@@ -38,6 +52,14 @@ function renderTasks () {
     });
 }
 
+deleteAllBtn.addEventListener('click', () => {
+    if (confirm('هل أنت متأكد أنك تريد مسح كل المهام؟')) {
+        tasks = [];
+        localStorage.removeItem('tasks');
+        renderTasks();
+    }
+});
+
 function editTask (index) {
     const newText = prompt('تعديل المهمه:', tasks[index].text);
     if (newText !== null && newText.trim() !== '') {
@@ -52,5 +74,11 @@ function deleteTask(index){
     saveTasks();
     renderTasks();
 }
+
+// function toggleCompleted (index) {
+//     tasks[index].completed = !tasks[index].completed;
+//     saveTasks();
+//     renderTasks();
+// }
 
 renderTasks();
